@@ -109,12 +109,14 @@ function getAt(me){
 
 function sumVal(){
     var sum = 0;
-
+    var cntsum = 0;
     $("#cartList tr").each(function(i, me) {
+        cntsum += Number(removeFormat_num($(me).find("[name='exCnt']").val()));
         sum += Number(removeFormat_num($(me).find("[name='exAmt']").text()));
     });
 
-    $("#tot_count").html(format_num(sum/100));
+    $("#tot_count").html(format_num(cntsum));
+    $("#tot_amtcount").html(format_num(sum/100));
     $("#tot_amt").html(format_num(sum));
 }
 
@@ -192,13 +194,20 @@ function save_img(){
     $("._tel").html($('#order_tel').val());
     $("._market").html($('#market_name').val());
 
+
+    $("#_tot_count").html($("#tot_count").html());
+    $("#_tot_amtcount").html($("#tot_amtcount").html());
+    $("#_tot_amt").html($("#tot_amt").html());
+
     fn_downloadImg('saveImgForm', fileNm);
     send_email();
 }
 
 // 이메일 보내기
 function send_email(){	
-    $('#price_total').val($('#totPrice').text());
+    $('#send_amt').val($('#tot_amt').text());
+    $('#send_amtcount').val($('#tot_amtcount').text());
+    $('#send_count').val($('#tot_count').text());
     
     var cartTxt = "";
     
@@ -219,7 +228,7 @@ function send_email(){
     $.ajax({
         data : queryString,
         type : 'post',
-        url : 'https://script.google.com/macros/s/AKfycbzOSdE7fpqEP5BrcxaW6f7Xo8VK-85BJGlu-1eOe4jC6gaGVmwRktA0Ipi-ax1qqwuB/exec',
+        url : 'https://script.google.com/macros/s/AKfycbzr0LYMn3hbh2t9F6lMcUF6gLsAK19OSY-IsdT1-O1A55r6B2m7GwsBzMx8oOrBSKOI/exec',
         dataType : 'json',
         error: function(xhr, status, error){
             fn_layerPop($("#layer_alert"), error);
@@ -237,6 +246,6 @@ function send_email(){
 
 
 function fn_callBackSendEmail(){
-$("._payOpt").text($("#tot_count").text());
+$("._payOpt").text($("#tot_amtcount").text());
 fn_layerPop($("#payPopup"));
 }

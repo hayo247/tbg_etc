@@ -175,7 +175,14 @@ function save_img(){
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="type"] option:selected').text() + '</td>';
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="color"] option:selected').text() + '</td>';
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="exWidth"]').val() + 'x'+ $(this).find('[name="exHeight"]').val() + 'x'+ $(this).find('[name="thickness"] option:selected').text() + '</td>';
-            html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="hole"] option:selected').text() + '</td>';
+            html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="hole"] option:selected').text();
+
+            if("없음" != $(this).find('[name="hole"] option:selected').text()){
+                html += "/" + $.trim($(this).find('[name="holeSize"]').val());
+                html += "/" + $.trim($(this).find('[name="exholeWay"]').val());
+            }
+
+            html += '</td>';
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="round"] option:selected').text() + '</td>';
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="exCnt"]').val() + '</td>';
             html += '</tr>';    

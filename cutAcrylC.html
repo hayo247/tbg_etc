@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="cart">
-			<input type="hidden" id="act" value="T" />
+			<input type="hidden" id="act" value="C" />
             <p class="bold"> * 주문하실 제품 목록를 확인해주세요.</p>
 			<div class="moCart">
             <table class="cartTable">
@@ -25,6 +25,7 @@
                         <td class="chk">&nbsp;</td>
                         <td class="type">종류</td>
                         <td class="thickness">두께</td>
+                        <td class="color">색상</td>
                         <td class="size">가로(mm)</td>
                         <td class="size">세로(mm)</td>
                         <td class="hole">타공<br>위치/크기/중심거리</td>
@@ -371,13 +372,15 @@
 						<td class="thickness">
 							<select name="thickness" onchange="fn_set3(this);">
 								<option value="">선택</option>
-								<option value="0">1T</option>
-								<option value="1">1.5T</option>
-								<option value="2">2T</option>
-								<option value="3">3T</option>
-								<option value="4">5T</option>
-								<option value="5">8T</option>
-								<option value="6">10T</option>
+								<option value="0">2.8T</option>
+								<option value="1">4.7T</option>
+							</select>
+						</td>
+						<td class="color">
+							<select name="color" onchange="fn_set3(this);">
+								<option value="">선택</option>
+								<option value="백색">백색</option>
+								<option value="흑색">흑색</option>
 							</select>
 						</td>
 						<td class="size"><input type="tel" name="exWidth" onkeyup="fn_set2(this); fn_set1(this)" onchange="fn_set2(this); fn_set1(this)"></td>

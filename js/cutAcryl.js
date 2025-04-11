@@ -40,6 +40,7 @@ window.onload = function(){
 }
 
 var vl = [230,256,328,492,820,132,164]
+var vl2 = [477,801]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');
@@ -87,8 +88,14 @@ function getAt(me){
         return;
     }
     
-    var h = ((s1) * (s2) / 9000)
-    var a = vl[$(tr).find("[name='thickness']").val()] * h;
+    var h = ((s1) * (s2) / 9000);
+    var a;
+
+    if($("#act").val() == "T"){
+        a = vl[$(tr).find("[name='thickness']").val()] * h;
+    }else if($("#act").val() == "C"){
+        a = vl2[$(tr).find("[name='thickness']").val()] * h;
+    }
 
     if($(tr).find("[name='type']").val() == "1"){
         a = a + (h * 325);

@@ -92,6 +92,12 @@ function getAt(me){
 
     if($(tr).find("[name='type']").val() == "1"){
         a = a + (h * 320);
+
+        if( a < 900){
+            a = 900;
+        }
+    }else if($(tr).find("[name='type']").val() == "0" && a < 500){
+        a = 500;
     }
 
     if($(tr).find("[name='hole']").val() != ""){

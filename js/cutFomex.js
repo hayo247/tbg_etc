@@ -184,8 +184,8 @@ function save_img(){
             html += '	<td style="border-right: 1px solid #BDBDBD;">' + $(this).find('[name="hole"] option:selected').text();
 
             if("없음" != $(this).find('[name="hole"] option:selected').text()){
-                html += "/" + $.trim($(this).find('[name="holeSize"]').val());
-                html += "/" + $.trim($(this).find('[name="exholeWay"]').val());
+                html += "\\" + $.trim($(this).find('[name="holeSize"]').val());
+                html += "\\" + $.trim($(this).find('[name="exholeWay"]').val());
             }
 
             html += '</td>';

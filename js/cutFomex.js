@@ -46,11 +46,6 @@ function fn_set1(me){
     var width = $(tr).find("[name='exWidth']").val();
     var height = $(tr).find("[name='exHeight']").val();
 
-    if(width > 2400 || height > 2400){            
-        fn_layerPop($("#alertPopup"), "최대 사이즈는 2400mm입니다.");
-        $(me).val(2400);
-        return;
-    }
     if(width > 1200 && height > 1200){            
         fn_layerPop($("#alertPopup"), "최대 사이즈는 1200x2400mm입니다.");
         $(me).val(1200);
@@ -75,20 +70,72 @@ function fn_set4(me){
     }
 }
 
+function fn_sizeChk(me){
+    var tr = $(me).parents('tr');
+    var thick = ($(tr).find("[name='thickness'] option:selected").text().replace("T", "")) * 10;
+    var width = $(tr).find("[name='exWidth']").val();
+    var height = $(tr).find("[name='exHeight']").val();
+
+    if($(tr).find("[name='thickness']").val() != "" && (width != "" || height != "" )){
+            
+        if($(me).attr('name') != "thickness"){
+            if($(me).val() < thick){            
+                fn_layerPop($("#alertPopup"), "최소 사이즈는 " + thick + "mm입니다.");
+                $(me).val(thick);
+                return;
+            }
+        }else{
+            var tf= false;
+
+            if(width < thick){            
+                $(tr).find("[name='exWidth']").val(thick);
+                tf = true;
+            }
+            
+            if(height < thick){            
+                $(tr).find("[name='exHeight']").val(thick);
+                tf = true;
+            }
+
+            if(tf){
+                fn_layerPop($("#alertPopup"), "최소 사이즈는 " + thick + "mm입니다.");
+                return;
+            }
+        }
+
+
+        if(width > 2400 && height != ""){            
+            fn_layerPop($("#alertPopup"), "최대 사이즈는 2400mm입니다.");
+            $(me).val(2400);
+            return;
+        }
+
+        if(width != "" && height > 2400){            
+            fn_layerPop($("#alertPopup"), "최대 사이즈는 2400mm입니다.");
+            $(me).val(2400);
+            return;
+        }
+
+    } 
+} 
+
 function getAt(me){
     var tr = $(me).parents('tr');
     var s1 = Number($(tr).find("[name='exWidth']").val()) + 10 ;
     var s2 = Number($(tr).find("[name='exHeight']").val()) + 10;
     var c = Number($(tr).find("[name='exCnt']").val()) ;
+    var s3 = Math.abs(s1-s2);
 
     if($(tr).find("[name='thickness']").val() == "" || $(tr).find("[name='color']").val() == "" 
     || $(tr).find("[name='exWidth']").val() < 1 || s1 < 1 || s2 < 1 || c < 1 ){
         $(tr).find("[name='exAmt']").html(0);
         return;
     }
-    
+
+    var aorg = vl[$(tr).find("[name='thickness']").val()];
+
     var h = ((s1) * (s2) / 9000)
-    var a = vl[$(tr).find("[name='thickness']").val()] * h;
+    var a = aorg * h;
 
     if($(tr).find("[name='type']").val() == "1"){
         a = a + (h * 320);
@@ -98,6 +145,14 @@ function getAt(me){
         }
     }else if($(tr).find("[name='type']").val() == "0" && a < 500){
         a = 500;
+    }
+
+    if((s1 >= 1000 || s2 >= 1000)){
+        a = a + 5000;
+    } else if((s1 >= 800 || s2 >= 800)){
+        a = a + 3000;
+    } else if (s3 >= 500){
+        a = a + 2000;
     }
 
     if($(tr).find("[name='hole']").val() != ""){
@@ -230,7 +285,7 @@ function send_email(){
         }
         $(this).find('td').each(function(index){
             cartTxt += $(this).text() + "|";
-        });
+        });        
     });
     
     $('#cart').val(cartTxt);

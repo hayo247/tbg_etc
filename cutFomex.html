@@ -369,7 +369,7 @@
 							</select>		
 						</td>
 						<td class="thickness">
-							<select name="thickness" onchange="fn_set3(this);">
+							<select name="thickness" onchange="fn_set3(this); fn_sizeChk(this);">
 								<option value="">선택</option>
 								<option value="0">1T</option>
 								<option value="1">2T</option>
@@ -391,8 +391,8 @@
 								<option value="회색">회색</option>
 							</select>
 						</td>
-						<td class="size"><input type="tel" name="exWidth" onkeyup="fn_set2(this); fn_set1(this)" onchange="fn_set2(this); fn_set1(this)"></td>
-						<td class="size"><input type="tel" name="exHeight" onkeyup="fn_set2(this); fn_set1(this)" onchange="fn_set2(this); fn_set1(this)"></td>
+						<td class="size"><input type="tel" name="exWidth" onkeyup="fn_set2(this); fn_set1(this)" onblur="fn_sizeChk(this)" onchange="fn_set2(this); fn_set1(this)"></td>
+						<td class="size"><input type="tel" name="exHeight" onkeyup="fn_set2(this); fn_set1(this)" onblur="fn_sizeChk(this)" onchange="fn_set2(this); fn_set1(this)"></td>
 						<td class="hole">
 							<select name="hole" onchange="fn_set4(this); fn_set3(this);">
 								<option value="">없음</option>

@@ -138,7 +138,7 @@ function getAt(me){
     var a = aorg * h;
 
     if($(tr).find("[name='type']").val() == "1"){
-        a = a + (h * 320);
+        a = a + (h * 336);
 
         if( a < 900){
             a = 900;

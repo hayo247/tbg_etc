@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [101,138,196,345,553,691]
+var vl = [111,148,206,355,563,701]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');
@@ -138,7 +138,7 @@ function getAt(me){
     var a = aorg * h;
 
     if($(tr).find("[name='type']").val() == "1"){
-        a = a + (h * 336);
+        a = a + (h * 346);
 
         if( a < 900){
             a = 900;

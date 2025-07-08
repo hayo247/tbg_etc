@@ -148,11 +148,11 @@ function getAt(me){
     }
 
     if((s1 >= 1000 || s2 >= 1000)){
-        a = a + 5000;
+        a = a + 7000;
     } else if((s1 >= 800 || s2 >= 800)){
-        a = a + 3000;
+        a = a + 5000;
     } else if (s3 >= 500){
-        a = a + 2000;
+        a = a + 3000;
     }
 
     if($(tr).find("[name='hole']").val() != ""){

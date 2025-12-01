@@ -138,7 +138,7 @@ function getAt(me){
     var a = aorg * h;
 
     if($(tr).find("[name='type']").val() == "1"){
-        a = a + (h * 376);
+        a = a + (h * 384);
 
         if( a < 900){
             a = 900;
@@ -148,11 +148,11 @@ function getAt(me){
     }
 
     if((s1 >= 2000 || s2 >= 2000)){
-        a = a + 20000;
+        a = a + 23000;
     } else if((s1 >= 1000 || s2 >= 1000)){
-        a = a + 15000;
+        a = a + 18000;
     } else if((s1 >= 800 || s2 >= 800)){
-        a = a + 5000;
+        a = a + 7000;
     } else if (s3 >= 500){
         if (s3 >= 2000){
             a = a + 10000;
@@ -327,3 +327,4 @@ function fn_callBackSendEmail(){
 $("._payOpt").text($("#tot_amtcount").text());
 fn_layerPop($("#payPopup"));
 }
+

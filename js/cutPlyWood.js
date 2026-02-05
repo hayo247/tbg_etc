@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [165,213,357,461,523,584]
+var vl = [1875,2422,4062,5235,5938,6641]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');
@@ -325,3 +325,4 @@ function fn_callBackSendEmail(){
 $("._payOpt").text($("#tot_amtcount").text());
 fn_layerPop($("#payPopup"));
 }
+

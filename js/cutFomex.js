@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [131,168,226,375,583,721]
+var vl = [151,205,307,512,819,1023]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');
@@ -121,8 +121,8 @@ function fn_sizeChk(me){
 
 function getAt(me){
     var tr = $(me).parents('tr');
-    var s1 = Number($(tr).find("[name='exWidth']").val()) + 10 ;
-    var s2 = Number($(tr).find("[name='exHeight']").val()) + 10;
+    var s1 = Number($(tr).find("[name='exWidth']").val()) + 20 ;
+    var s2 = Number($(tr).find("[name='exHeight']").val()) + 20;
     var c = Number($(tr).find("[name='exCnt']").val()) ;
     var s3 = Math.abs(s1-s2);
 
@@ -138,7 +138,7 @@ function getAt(me){
     var a = aorg * h;
 
     if($(tr).find("[name='type']").val() == "1"){
-        a = a + (h * 384);
+        a = a + (h * 446);
 
         if( a < 900){
             a = 900;

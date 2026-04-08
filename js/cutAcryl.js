@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [230,256,328,492,820,132,164]
+var vl = [250,276,348,512,840,152,184]
 var vl2 = [477,801]
 
 function fn_set1(me){
@@ -78,8 +78,8 @@ function fn_set4(me){
 
 function getAt(me){
     var tr = $(me).parents('tr');
-    var s1 = Number($(tr).find("[name='exWidth']").val()) + 10 ;
-    var s2 = Number($(tr).find("[name='exHeight']").val()) + 10;
+    var s1 = Number($(tr).find("[name='exWidth']").val()) + 20 ;
+    var s2 = Number($(tr).find("[name='exHeight']").val()) + 20;
     var c = Number($(tr).find("[name='exCnt']").val()) ;
 
     if($(tr).find("[name='thickness']").val() == "" 
@@ -98,7 +98,7 @@ function getAt(me){
     }
 
     if($(tr).find("[name='type']").val() == "1"){
-        a = a + (h * 325);
+        a = a + (h * 446);
     }
 
     if($(tr).find("[name='hole']").val() != ""){

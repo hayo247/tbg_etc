@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [162,208,307,512,819,1023]
+var vl = [162,218,317,522,829,1033]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');

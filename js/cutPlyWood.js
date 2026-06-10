@@ -39,7 +39,7 @@ window.onload = function(){
  
 }
 
-var vl = [205,262,433,555,628,701]
+var vl = [225,282,453,575,648,721]
 
 function fn_set1(me){
     var tr = $(me).parents('tr');
@@ -142,8 +142,8 @@ function getAt(me){
         if( a < 1500){
             a = 1500;
         }
-    }else if($(tr).find("[name='type']").val() == "0" && a < 800){
-        a = 800;
+    }else if($(tr).find("[name='type']").val() == "0" && a < 1000){
+        a = 1000;
     }
 
     if((s1 >= 2000 || s2 >= 2000)){
